@@ -5888,3 +5888,9 @@ footer {
 .is-IE .post-thumbnail .wp-post-image {
 	min-width: auto;
 }
+
+.row{margin-left: -15px;margin-right: -15px;position: relative;min-height: 1px;display: flex;}
+.blog-col{width: 33.33%;padding-left: 15px;padding-right: 15px;}
+.blog_image{min-height: 262px;max-height: 262px;}
+.blog_image img{width: 100%; height:100%;object-fit: cover;    min-height: 262px;
+    max-height: 262px;}

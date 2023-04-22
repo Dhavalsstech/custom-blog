@@ -654,3 +654,39 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+
+// Custom post type "Blog"
+/**
+ * Author: Dhaval Sheth <dhavalsheth50@gmail.com>
+ */
+
+ // Custom post type function
+
+if ( ! function_exists( 'create_post_type' ) ) :
+
+	function create_post_type() {
+
+	  register_post_type( 'blog',
+		array(
+		  'labels' => array(
+			'name' => __( 'Blogs' ), 
+			'singular_name' => __( 'Blog' ), 
+		  ),
+		  'public' => true,
+		  'supports' => array ( 'title', 'editor',  'page-attributes', 'thumbnail' ),
+		  'hierarchical' => true,
+		  'rewrite' => array ( 'slug' => __( 'blog' ) )
+		)
+	  );
+	
+	}
+	add_action( 'init', 'create_post_type' );
+endif;
+
+// limit expert content
+function limit_content_chr( $content, $limit=150 ) {
+
+    return mb_strimwidth( strip_tags($content), 0, $limit, '...' );
+
+}
